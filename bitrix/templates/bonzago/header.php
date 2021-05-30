@@ -45,20 +45,24 @@ $APPLICATION->ShowPanel();
                 </ul>
             </nav>
             <div class="account">
-                <a class="account__lnk" href="#">
-                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g clip-path="url(#clip0)">
-                            <path d="M7.00005 7.88562C2.79357 7.88562 0.476929 9.87559 0.476929 13.489C0.476929 13.7713 0.705659 14 0.987874 14H13.0122C13.2944 14 13.5232 13.7713 13.5232 13.489C13.5232 9.87578 11.2065 7.88562 7.00005 7.88562ZM1.51741 12.9781C1.71839 10.2764 3.56035 8.90754 7.00005 8.90754C10.4398 8.90754 12.2817 10.2764 12.4829 12.9781H1.51741Z" fill="#6E1F8A"/>
-                            <path d="M7 0C5.06776 0 3.61072 1.48635 3.61072 3.45726C3.61072 5.48589 5.13114 7.13609 7 7.13609C8.86887 7.13609 10.3893 5.48589 10.3893 3.45743C10.3893 1.48635 8.93225 0 7 0ZM7 6.11436C5.69453 6.11436 4.63261 4.92248 4.63261 3.45743C4.63261 2.04619 5.62828 1.02189 7 1.02189C8.34977 1.02189 9.3674 2.06883 9.3674 3.45743C9.3674 4.92248 8.30548 6.11436 7 6.11436Z" fill="#6E1F8A"/>
-                        </g>
-                        <defs>
-                            <clipPath id="clip0">
-                                <rect width="14" height="14" fill="white"/>
-                            </clipPath>
-                        </defs>
-                    </svg>
-                    <span>Вход / Регистрация</span>
-                </a>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:sale.basket.basket.line",
+                    "bootstrap_v4",
+                    array(
+                        "PATH_TO_PERSONAL" => SITE_DIR."personal/",
+                        "SHOW_PERSONAL_LINK" => "N",
+                        "SHOW_NUM_PRODUCTS" => "N",
+                        "SHOW_TOTAL_PRICE" => "N",
+                        "SHOW_PRODUCTS" => "N",
+                        "POSITION_FIXED" =>"N",
+                        "SHOW_AUTHOR" => "Y",
+                        "SHOW_BASKET" => "N",
+                        "PATH_TO_REGISTER" => SITE_DIR."login/",
+                        "PATH_TO_PROFILE" => SITE_DIR."personal/"
+                    ),
+                    false,
+                    array()
+                );?>
             </div>
         </div>
     </div>
