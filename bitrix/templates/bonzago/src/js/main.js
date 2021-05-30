@@ -1,9 +1,9 @@
 $(document ).ready(function() {
 
     var catswiper = new Swiper(".categories__list", {
-        cssMode: true,
         slidesPerView: 2,
         spaceBetween: 20,
+        draggable: true,
         navigation: {
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
@@ -11,8 +11,6 @@ $(document ).ready(function() {
         pagination: {
             el: ".swiper-pagination",
         },
-        mousewheel: true,
-        keyboard: true,
     });
 
     // document.querySelectorAll('img.svg').forEach(function(img){
