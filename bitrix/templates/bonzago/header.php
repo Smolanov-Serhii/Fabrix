@@ -36,13 +36,22 @@ $APPLICATION->ShowPanel();
     <div class="top-nav ">
         <div class="top-nav__wrapper container">
             <nav class="page-nav">
-                <ul>
-                    <li><a href="">О нас</a></li>
-                    <li><a href="">Оплата</a></li>
-                    <li><a href="">Доставка</a></li>
-                    <li><a href="">Гарантия</a></li>
-                    <li><a href="">Контакты</a></li>
-                </ul>
+                <?$APPLICATION->IncludeComponent(
+                    "bitrix:menu",
+                    "",
+                    Array(
+                        "ALLOW_MULTI_SELECT" => "N",
+                        "CHILD_MENU_TYPE" => "left",
+                        "DELAY" => "N",
+                        "MAX_LEVEL" => "1",
+                        "MENU_CACHE_GET_VARS" => array(""),
+                        "MENU_CACHE_TIME" => "3600",
+                        "MENU_CACHE_TYPE" => "N",
+                        "MENU_CACHE_USE_GROUPS" => "Y",
+                        "ROOT_MENU_TYPE" => "page-menu",
+                        "USE_EXT" => "N"
+                    )
+                );?><br>
             </nav>
             <div class="account">
                 <?$APPLICATION->IncludeComponent(
@@ -67,16 +76,16 @@ $APPLICATION->ShowPanel();
         </div>
     </div>
     <div class="middle-nav container">
-        <div class="middle-nav__logo">
+        <a href="<?=SITE_DIR?>" class="middle-nav__logo">
             <img src="<?= SITE_TEMPLATE_PATH; ?>/images/logo.svg" alt="Логотип">
-        </div>
+        </a>
         <div class="middle-nav__search">
-            <form class="form" action="" method="get">
+            <form class="form" action="/search/index.php">
                 <div class="form__img">
                     <img src="<?= SITE_TEMPLATE_PATH; ?>/images/search-icon.svg" alt="Искать">
                 </div>
-                <input type="text" required placeholder="Начните вводить то, что Вы ищете ...">
-                <input type="submit" value="найти">
+                <input name="q" type="text" required placeholder="Начните вводить то, что Вы ищете ...">
+                <input type="submit" value="найти" name="s">
             </form>
         </div>
         <div class="middle-nav__order">

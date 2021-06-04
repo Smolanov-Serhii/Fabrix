@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="e1dd4b10-46e9-4c63-b054-7c7370ecee40" name="dev" url="http://ftp.front-end-dev.com.ua">
+        <fileTransfer rootFolder="/fabrics.front-end-dev.com.ua" host="ftp.front-end-dev.com.ua" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

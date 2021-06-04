@@ -1,4 +1,5 @@
 @import "normalize";
+@import "default";
 
 html{
   font-family: 'Montserrat', sans-serif;
@@ -116,10 +117,13 @@ body{
       }
     }
     .page-nav{
-      ul{
+      .left-menu{
         display: flex;
         li{
           margin-right: 30px;
+          padding: 0;
+          background-color: transparent;
+          background-image: none;
           a{
             font-size: 1.4rem;
             line-height: 1.7rem;
@@ -189,42 +193,8 @@ body{
     &__search{
       flex: 1;
       .form{
-        width: 100%;
-        position: relative;
-        &__img{
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 50px;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          pointer-events: none;
-        }
-        input{
-          font-weight: 600;
-          font-size: 1.3rem;
-          line-height: 1.6rem;
-          text-transform: uppercase;
-          color: #222222;
-          padding: 18px 90px 18px 60px;
-          background-color: #EEEEEE;
-          opacity: 0.6;
-          border: none;
-          //border: 1px solid #222222;
-          border-radius: 5px;
-          width: 100%;
-        }
-        input[type="submit"]{
-          width: auto;
-          position: absolute;
-          top: 0;
-          right: 0;
-          border: none;
-          background-color: transparent;
-          padding: 18px 20px;
-        }
+        @include search_fields;
+
       }
     }
   }
@@ -772,5 +742,11 @@ body{
     color: #FFFFFF;
     font-weight: 400;
   }
-
+}
+.page-search-result{
+  margin-top: 40px;
+  @include customtable;
+  form{
+    @include search_fields;
+  }
 }
