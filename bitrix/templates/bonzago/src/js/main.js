@@ -13,44 +13,87 @@ $(document ).ready(function() {
         },
     });
 
-    // document.querySelectorAll('img.svg').forEach(function(img){
-    //     var imgID = img.id;
-    //     var imgClass = img.className;
-    //     var imgURL = img.src;
-    //
-    //     fetch(imgURL).then(function(response) {
-    //         return response.text();
-    //     }).then(function(text){
-    //
-    //         var parser = new DOMParser();
-    //         var xmlDoc = parser.parseFromString(text, "text/xml");
-    //
-    //         // Get the SVG tag, ignore the rest
-    //         var svg = xmlDoc.getElementsByTagName('svg')[0];
-    //
-    //         // Add replaced image's ID to the new SVG
-    //         if(typeof imgID !== 'undefined') {
-    //             svg.setAttribute('id', imgID);
-    //         }
-    //         // Add replaced image's classes to the new SVG
-    //         if(typeof imgClass !== 'undefined') {
-    //             svg.setAttribute('class', imgClass+' replaced-svg');
-    //         }
-    //
-    //         // Remove any invalid XML tags as per http://validator.w3.org
-    //         svg.removeAttribute('xmlns:a');
-    //
-    //         // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-    //         if(!svg.getAttribute('viewBox') && svg.getAttribute('height') && svg.getAttribute('width')) {
-    //             svg.setAttribute('viewBox', '0 0 ' + svg.getAttribute('height') + ' ' + svg.getAttribute('width'))
-    //         }
-    //
-    //         // Replace image with new SVG
-    //         img.parentNode.replaceChild(svg, img);
-    //
-    //     });
-    //
-    // });
+    if ($('.news-list__item-desc').length){
+        $('.news-list__item-desc .shov-more').on('click', function(){
+            var Parrent = $(this).closest('.news-list__item-desc');
+            Parrent.find('.part').fadeToggle(0);
+            Parrent.find('.full').fadeToggle(0);
+            $(this).toggleClass('showed');
+            // function ShovFull(){
+            //     Parrent.find('.full').fadeToggle();
+            // }
+            // setTimeout(function(){
+            //     ShovFull();
+            // }, 0);
+        });
+
+    }
+
+    if ($('.about-page__map').length){
+        if (  jQuery(window).width() >= 1100 ) {
+            var FirstCoord = 55.754755;
+            var SecondCoord = 37.592680;
+
+            var CenterFirstCoord = 55.754555;
+            var CenterSecondCoord = 37.589980;
+        } else {
+            var FirstCoord = 53.925701;
+            var SecondCoord = 30.341069;
+
+            var CenterFirstCoord = FirstCoord;
+            var CenterSecondCoord = SecondCoord;
+        }
+
+        ymaps.ready(function () {
+            var IconUrl = $('.about-page__map').data('icon');
+            var myMap = new ymaps.Map('map', {
+                    center: [CenterFirstCoord, CenterSecondCoord],
+                    controls: [],
+                    zoom: 17
+                }, {
+                    searchControlProvider: true
+                }),
+
+                // Создаём макет содержимого.
+                MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+                    '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+                ),
+
+
+                myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+                }, {
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    // Своё изображение иконки метки.
+                    iconImageHref: "",
+                    // Размеры метки.
+                    iconImageSize: [0, 0],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                }),
+                myPlacemarkWithContent = new ymaps.Placemark([FirstCoord, SecondCoord], {
+                }, {
+                    // Опции.
+                    // Необходимо указать данный тип макета.
+                    iconLayout: 'default#imageWithContent',
+                    // Своё изображение иконки метки.
+                    iconImageHref: IconUrl,
+                    // Размеры метки.
+                    iconImageSize: [40, 45],
+                    // Смещение левого верхнего угла иконки относительно
+                    // её "ножки" (точки привязки).
+                    iconImageOffset: [-20, -22],
+                    // Смещение слоя с содержимым относительно слоя с картинкой.
+                    iconContentOffset: [15, 15],
+                    // Макет содержимого.
+                    iconContentLayout: MyIconContentLayout
+                });
+            myMap.behaviors.disable('scrollZoom');
+            myMap.geoObjects
+                // .add(myPlacemark)
+                .add(myPlacemarkWithContent);
+        });
+    }
 
 });
 

@@ -16,8 +16,14 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
                 <div class="footer__subscribe-desc">
                     Подпишитесь на новости, чтобы не пропустить новые акции и спецпредложения
                 </div>
-                <input class="footer__subscribe-input" type="text" placeholder="Ваш E-mail">
-                <input type="submit" class="footer__subscribe-send button" value="подписаться">
+                <?$APPLICATION->IncludeComponent("bitrix:subscribe.form","",Array(
+                        "USE_PERSONALIZATION" => "Y",
+                        "PAGE" => "#SITE_DIR#personal/subscribe/subscr_edit.php",
+                        "SHOW_HIDDEN" => "Y",
+                        "CACHE_TYPE" => "A",
+                        "CACHE_TIME" => "3600"
+                    )
+                );?>
             </form>
         </div>
         <div class="footer__nav">
@@ -53,10 +59,12 @@ if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true)
         Copyright © <?php echo date('Y'); ?>  bonzago.ru. All rights reserved.
     </div>
 </footer>
+
 <?php
 
 use \Bitrix\Main\Page\Asset;
 Asset::getInstance()->addJs(SITE_TEMPLATE_PATH . "/assets/js/common.js");
 ?>
+
 </body>
 </html>
