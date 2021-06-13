@@ -100,11 +100,19 @@ if (isset($arResult['ITEM']))
 
 	$buttonSizeClass = isset($arResult['BIG_BUTTONS']) && $arResult['BIG_BUTTONS'] === 'Y' ? 'btn-md' : 'btn-sm';
 	$itemHasDetailUrl = isset($item['DETAIL_PAGE_URL']) && $item['DETAIL_PAGE_URL'] != '';
+
 	?>
 
 	<div class="product-item-container<?=(isset($arResult['SCALABLE']) && $arResult['SCALABLE'] === 'Y' ? ' product-item-scalable-card' : '')?>"
 		id="<?=$areaId?>" data-entity="item">
+        <div class="favor" data-item="<?=$areaId?>">
+            <svg width="34" height="34" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="34" height="34" rx="4" fill="#222222" fill-opacity="0.4"/>
+                <path d="M17.5 11.3885L17.1055 10.8821C16.7019 10.3638 16.2465 9.92294 15.7472 9.56444L15.7472 9.56442C14.7626 8.8574 13.6489 8.5 12.4251 8.5C10.7745 8.5 9.27079 9.11244 8.17927 10.2117C7.10096 11.2979 6.5 12.7879 6.5 14.4181C6.5 16.0688 7.15501 17.6085 8.65422 19.2883C10.0113 20.8086 11.9727 22.3629 14.3018 24.2058L14.3018 24.2058L14.3043 24.2078C15.0947 24.8332 15.993 25.5441 16.926 26.3016L16.9263 26.3019C17.0801 26.4269 17.2834 26.5 17.5 26.5C17.7165 26.5 17.92 26.4268 18.0733 26.3022L18.0736 26.3019C18.9998 25.5499 19.8923 24.8435 20.6788 24.2211L20.6987 24.2053L20.6987 24.2053C23.0275 22.3627 24.9889 20.8086 26.346 19.2881L26.346 19.2881C27.8451 17.6086 28.5 16.0688 28.5 14.418C28.5 12.7879 27.8991 11.2979 26.8206 10.2117C25.729 9.11244 24.2255 8.5 22.5749 8.5C21.3511 8.5 20.2374 8.85738 19.2527 9.5644L17.5 11.3885ZM17.5 11.3885L17.8945 10.8821M17.5 11.3885L17.8945 10.8821M17.8945 10.8821C18.2983 10.3637 18.7535 9.92295 19.2526 9.56444L17.8945 10.8821Z" stroke="white"/>
+            </svg>
+        </div>
 		<?
+
 		$documentRoot = Main\Application::getDocumentRoot();
 		$templatePath = mb_strtolower($arResult['TYPE']).'/template.php';
 		$file = new Main\IO\File($documentRoot.$templateFolder.'/'.$templatePath);

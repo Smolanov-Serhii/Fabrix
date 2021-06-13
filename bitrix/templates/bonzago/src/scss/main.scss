@@ -996,9 +996,33 @@ body{
     box-shadow: none!important;
     position: static!important;
     padding: 0!important;
+    border-radius: 8px;
+    overflow: hidden;
+    .product-item-image-wrapper{
+      padding-top: 100%;
+    }
   }
   .product-item-container{
     height: auto!important;
+    position: relative;
+    .favor{
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 40;
+      cursor: pointer;
+      &:hover{
+        rect{
+          fill: #6E1F8A;
+          fill-opacity: 1;
+        }
+      }
+      &.active{
+        path{
+          fill: #FFFFFF;
+        }
+      }
+    }
   }
   .product-item-title{
     overflow: visible!important;
