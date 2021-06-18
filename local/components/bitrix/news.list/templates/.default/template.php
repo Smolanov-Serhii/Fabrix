@@ -13,6 +13,7 @@
 $this->setFrameMode(true);
 ?>
 <div class="news-list">
+
 <?if($arParams["DISPLAY_TOP_PAGER"]):?>
 	<?=$arResult["NAV_STRING"]?>
 <?endif;?>
@@ -68,21 +69,6 @@ $this->setFrameMode(true);
                 <?if($arParams["DISPLAY_PICTURE"]!="N" && is_array($arItem["PREVIEW_PICTURE"])):?>
             <div style="clear:both"></div>
         <?endif?>
-            <?foreach($arItem["FIELDS"] as $code=>$value):?>
-                <small>
-                    <?=GetMessage("IBLOCK_FIELD_".$code)?>:&nbsp;<?=$value;?>
-                </small><br />
-            <?endforeach;?>
-            <?foreach($arItem["DISPLAY_PROPERTIES"] as $pid=>$arProperty):?>
-                <small>
-                    <?=$arProperty["NAME"]?>:&nbsp;
-                    <?if(is_array($arProperty["DISPLAY_VALUE"])):?>
-                        <?=implode("&nbsp;/&nbsp;", $arProperty["DISPLAY_VALUE"]);?>
-                    <?else:?>
-                        <?=$arProperty["DISPLAY_VALUE"];?>
-                    <?endif?>
-                </small><br />
-            <?endforeach;?>
             </p>
         </div>
     </div>

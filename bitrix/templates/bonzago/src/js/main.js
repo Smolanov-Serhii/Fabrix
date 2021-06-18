@@ -1,17 +1,137 @@
 $(document ).ready(function() {
 
-    var catswiper = new Swiper(".categories__list", {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        draggable: true,
-        navigation: {
-            nextEl: ".swiper-button-next",
-            prevEl: ".swiper-button-prev",
-        },
-        pagination: {
-            el: ".swiper-pagination",
-        },
+    function videoId(button) {
+        var $videoUrl = button.attr("data-video");
+        if ($videoUrl !== undefined) {
+            var $videoUrl = $videoUrl.toString();
+            var srcVideo;
+
+            if ($videoUrl.indexOf("youtube") !== -1) {
+                var et = $videoUrl.lastIndexOf("&");
+                if (et !== -1) {
+                    $videoUrl = $videoUrl.substring(0, et);
+                }
+                var embed = $videoUrl.indexOf("embed");
+                if (embed !== -1) {
+                    $videoUrl =
+                        "https://www.youtube.com/watch?v=" +
+                        $videoUrl.substring(embed + 6, embed + 17);
+                }
+
+                srcVideo =
+                    "https://www.youtube.com/embed/" +
+                    $videoUrl.substring($videoUrl.length - 11, $videoUrl.length) +
+                    "?autoplay=1&mute=1&loop=1&playlist=" +
+                    $videoUrl.substring($videoUrl.length - 11, $videoUrl.length) +
+                    "";
+            } else if ($videoUrl.indexOf("youtu") !== -1) {
+                var et = $videoUrl.lastIndexOf("&");
+                if (et !== -1) {
+                    $videoUrl = $videoUrl.substring(0, et);
+                }
+                var embed = $videoUrl.indexOf("embed");
+                if (embed !== -1) {
+                    $videoUrl =
+                        "https://youtu.be/" +
+                        $videoUrl.substring(embed + 6, embed + 17);
+                }
+
+                srcVideo =
+                    "https://www.youtube.com/embed/" +
+                    $videoUrl.substring($videoUrl.length - 11, $videoUrl.length) +
+                    "?autoplay=1&mute=1&loop=1&playlist=" +
+                    $videoUrl.substring($videoUrl.length - 11, $videoUrl.length) +
+                    "";
+
+            } else if ($videoUrl.indexOf("vimeo") !== -1) {
+                srcVideo =
+                    "https://player.vimeo.com/video/" +
+                    $videoUrl
+                        .substring($videoUrl.indexOf(".com") + 5, $videoUrl.length)
+                        .replace("/", "") +
+                    "?autoplay=1";
+
+
+            } else if ($videoUrl.indexOf("mp4") !== -1) {
+                return (
+                    '<video loop playsinline autoplay><source src="' +
+                    $videoUrl +
+                    '" type="video/mp4"></video>'
+                );
+            } else {
+                alert(
+                    "The video assigned is not from Youtube, Vimeo or MP4, remember to enter the correct complete video link .\n - Youtube: https://www.youtube.com/watch?v=43ngkc2Ejgw\n - Vimeo: https://vimeo.com/111939668\n - MP4 https://server.com/file.mp4"
+                );
+                return false;
+            }
+            return (
+                '<iframe src="' +
+                srcVideo +
+                '" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
+            );
+        } else {
+            alert("Не указан файл видео.");
+            return false;
+        }
+    }
+
+    $(".lets-play").click(function (e) {
+        e.preventDefault();
+        var $theVideo = videoId($(this));
+        if ($theVideo) {
+            $("#video-wrap")
+                .html(
+                    '<span class="video-overlay"></span><div class="video-container">' +
+                    $theVideo +
+                    '</div><button class="close-video">x</button>'
+                )
+                .addClass("active");
+        }
     });
+
+    $(document).on("click", ".close-video, .video-overlay", function () {
+        $("#video-wrap").empty().removeClass("active");
+    });
+
+
+    if ($('.single-producer__slider').length){
+        var MediGalery = new Swiper(".single-producer__slider", {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            draggable: true,
+            loop: true,
+            pagination: {
+                el: ".categories__navigates .single-producer-pag",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".categories__navigates .swiper-button-next",
+                prevEl: ".categories__navigates .swiper-button-prev",
+            },
+
+        });
+    }
+
+    if ($('.categories__list').length){
+        var catswiper = new Swiper(".categories__list", {
+            slidesPerView: 2,
+            spaceBetween: 20,
+            loop: true,
+            draggable: true,
+            autoplay: {
+                delay: 4000,
+            },
+            navigation: {
+                nextEl: ".categories__container .swiper-button-next",
+                prevEl: ".categories__container .swiper-button-prev",
+            },
+            pagination: {
+                el: ".categories__container .swiper-pagination",
+                clickable: true,
+            },
+        });
+    }
+
 
     if ($('.news-list__item-desc').length){
         $('.news-list__item-desc .shov-more').on('click', function(){

@@ -57,3 +57,14 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 		"USE_SHARE" => "N"
 	)
 );?><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+
+<?
+// additional photos
+$LINE_ELEMENT_COUNT = 2; // number of elements in a row
+if(count($arResult["SERTIFICATE"])>0):?>
+    <a name="more_photo"></a>
+    <?foreach($arResult["SERTIFICATE"] as $PHOTO):?>
+        <img border="0" src="<?=$PHOTO["SRC"]?>" width="<?=$PHOTO["WIDTH"]?>" height="<?=$PHOTO["HEIGHT"]?>"
+             alt="<?=$arResult["NAME"]?>" title="<?=$arResult["NAME"]?>" /><br />
+    <?endforeach?>
+<?endif?>

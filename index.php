@@ -24,8 +24,14 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
                 <div class="swiper-pagination">
                 </div>
                 <div class="swiper-button-prev">
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.0606 8L9.53027 1.53033L8.46961 0.469666L0.939283 8L8.46961 15.5303L9.53027 14.4697L3.0606 8Z" fill="#222222"/>
+                    </svg>
                 </div>
                 <div class="swiper-button-next">
+                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.9394 8.00006L0.469727 1.53039L1.53039 0.469727L9.06072 8.00006L1.53039 15.5304L0.469727 14.4697L6.9394 8.00006Z" fill="#222222"/>
+                    </svg>
                 </div>
             </div>
             <h2 class="categories__title block-title">Выбирайте по категориям</h2>

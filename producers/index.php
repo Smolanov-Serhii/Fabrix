@@ -2,7 +2,10 @@
 define("HIDE_SIDEBAR", true);
 require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("");
-?><div class="breadcrumbs">
+
+// dump($arResult["ITEMS"]);
+?>?&gt;
+<div class="breadcrumbs">
 	<div class="breadcrumbs__container container">
 		 <?$APPLICATION->IncludeComponent(
 	"bitrix:breadcrumb",
@@ -17,8 +20,10 @@ $APPLICATION->SetTitle("");
 </div>
 <div class="producers-page">
 	<div class="producers-page__container container">
+		 <? if ($APPLICATION->GetCurPage(false) === '/producers/'): ?>
 		<h1 class="producers-page__title">
 		<?php echo $APPLICATION->ShowTitle(false);?> </h1>
+		 <? endif; ?>
 		<div class="producers-page__content">
 			 <?$APPLICATION->IncludeComponent(
 	"bitrix:news",
@@ -46,7 +51,7 @@ $APPLICATION->SetTitle("");
 		"DETAIL_PAGER_SHOW_ALL" => "Y",
 		"DETAIL_PAGER_TEMPLATE" => "",
 		"DETAIL_PAGER_TITLE" => "Страница",
-		"DETAIL_PROPERTY_CODE" => array("",""),
+		"DETAIL_PROPERTY_CODE" => array("","VIDEO_POST","SERTIFICATE",""),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DISPLAY_BOTTOM_PAGER" => "Y",
 		"DISPLAY_DATE" => "Y",
@@ -60,7 +65,7 @@ $APPLICATION->SetTitle("");
 		"INCLUDE_IBLOCK_INTO_CHAIN" => "Y",
 		"LIST_ACTIVE_DATE_FORMAT" => "d.m.Y",
 		"LIST_FIELD_CODE" => array("",""),
-		"LIST_PROPERTY_CODE" => array("",""),
+		"LIST_PROPERTY_CODE" => array("","SERTIFICATE",""),
 		"MESSAGE_404" => "",
 		"META_DESCRIPTION" => "-",
 		"META_KEYWORDS" => "-",
@@ -98,4 +103,4 @@ $APPLICATION->SetTitle("");
 		</div>
 	</div>
 </div>
- <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+ <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
