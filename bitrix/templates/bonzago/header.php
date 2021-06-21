@@ -32,6 +32,11 @@ if (!\Bitrix\Main\Loader::includeModule('landing'))
 <body class="<?$APPLICATION->ShowProperty('BodyClass');?>" <?$APPLICATION->ShowProperty('BodyTag');?>>
 <?
 $APPLICATION->ShowPanel();
+
+if ($APPLICATION->GetCurPage(false) == '/catalog/*/*') {
+    $FL_CATALOG = true;
+};
+
 ?>
 <header class="header">
     <div class="top-nav ">

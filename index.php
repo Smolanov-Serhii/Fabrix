@@ -186,165 +186,37 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
             </div>
         </div>
     </section>
-    <section class="sample-order container">
-        <h2 class="sample-order__title block-title">
-            Удобный заказ образцов </h2>
-        <p class="sample-order__subtitle block-subtitle">
-            Всего 3 шага отделают Вас от идеи до получения образцов ткани прямо до Вашей двери.
-        </p>
-        <div class="sample-order__list">
-            <div class="sample-order__item">
-                <div class="sample-order__arrow">
-                    <img alt="Удобный заказ образцов" src="/bitrix/templates/bonzago/images/sample-order-arrow.svg">
-                </div>
-                <div class="sample-order__digit">
-                    1
-                </div>
-                <div class="sample-order__icon">
-                    <img alt="Выберите материал для своей идеи и вдохновения"
-                         src="/bitrix/templates/bonzago/images/sample-order-1.svg">
-                </div>
-                <div class="sample-order__content">
-                    Выберите материал для своей идеи и вдохновения
-                </div>
-            </div>
-            <div class="sample-order__item">
-                <div class="sample-order__arrow">
-                    <img alt="Удобный заказ образцов" src="/bitrix/templates/bonzago/images/sample-order-arrow.svg">
-                </div>
-                <div class="sample-order__digit">
-                    2
-                </div>
-                <div class="sample-order__icon">
-                    <img alt="Добавьте в корзину и укажите адрес"
-                         src="/bitrix/templates/bonzago/images/sample-order-2.svg">
-                </div>
-                <div class="sample-order__content">
-                    Добавьте в корзину и укажите адрес
-                </div>
-            </div>
-            <div class="sample-order__item">
-                <div class="sample-order__arrow">
-                    <img alt="Удобный заказ образцов" src="/bitrix/templates/bonzago/images/sample-order-arrow.svg">
-                </div>
-                <div class="sample-order__digit">
-                    3
-                </div>
-                <div class="sample-order__icon">
-                    <img alt="Устройтесь поудобнее и расслабтесь. Доставим образцы до вашей двери"
-                         src="/bitrix/templates/bonzago/images/sample-order-3.svg">
-                </div>
-                <div class="sample-order__content">
-                    Устройтесь поудобнее и расслабтесь. Доставим образцы до вашей двери
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="suppliers">
-        <div class="suppliers__container">
-            <div class="suppliers__img">
-                <img alt="Только проверенные поставщики" src="/bitrix/templates/bonzago/images/supliers-bg.jpg">
-            </div>
-            <div class="suppliers__wrapper container-right">
-                <h2 class="suppliers__title block-title">
-                    Только проверенные поставщики </h2>
-                <div class="suppliers__subtitle block-subtitle">
-                    Каждый производитель прошел аудит на соответствие мировым стандартам параметров качества
-                    произовдства
-                </div>
-                <a class="suppliers__lnk button" href="/producers/">смотреть поставщиков</a>
-            </div>
-        </div>
-    </section>
-    <section class="control container">
-        <h2 class="control__title block-title">
-            Полный контроль заказов </h2>
-        <p class="control__subtitle block-subtitle">
-            Вы видите в online режиме на каком этапе сейчас находится Ваш заказ
-        </p>
-        <div class="control__list">
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Выставлен счет, ожидается оплата"
-                             src="/bitrix/templates/bonzago/images/control-1.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-next.svg" alt="Далее">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Выставлен счет, ожидается оплата
-                </div>
-            </div>
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Счет оплачен, товар в производстве, деньги зарезервированы"
-                             src="/bitrix/templates/bonzago/images/control-2.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-next.svg" alt="Далее">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Счет оплачен, товар в производстве, деньги зарезервированы
-                </div>
-            </div>
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Товар произведен, идет проверка качества"
-                             src="/bitrix/templates/bonzago/images/control-3.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-next.svg" alt="Далее">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Товар произведен, идет проверка качества
-                </div>
-            </div>
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Товар поступил на склад в Москве, ожидается отгрузка клиенту"
-                             src="/bitrix/templates/bonzago/images/control-4.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-next.svg" alt="Далее">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Товар поступил на склад в Москве, ожидается отгрузка клиенту
-                </div>
-            </div>
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Товар отгружен клиенту" src="/bitrix/templates/bonzago/images/control-5.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-next.svg" alt="Далее">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Товар отгружен клиенту
-                </div>
-            </div>
-            <div class="control__item">
-                <div class="control__top">
-                    <div class="control__image">
-                        <img alt="Товар получен, резервированные деньги списаны"
-                             src="/bitrix/templates/bonzago/images/control-6.svg">
-                    </div>
-                    <div class="control__arrow">
-                        <img src="/bitrix/templates/bonzago/images/control-done.svg" alt="Готово">
-                    </div>
-                </div>
-                <div class="control__content">
-                    Товар получен, резервированные деньги списаны
-                </div>
-            </div>
-        </div>
-    </section><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+<?$APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/main-orders.php"
+    )
+);?>
+
+<?$APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/producers.php"
+    )
+);?>
+
+<?$APPLICATION->IncludeComponent(
+    "bitrix:main.include",
+    "",
+    Array(
+        "AREA_FILE_SHOW" => "file",
+        "AREA_FILE_SUFFIX" => "inc",
+        "EDIT_TEMPLATE" => "",
+        "PATH" => "/include/control.php"
+    )
+);?>
+
+<? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

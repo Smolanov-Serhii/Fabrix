@@ -22,11 +22,11 @@ $APPLICATION->SetTitle("");
 <div class="catalog-page__content">
 	 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog",
-	"",
+	"bonzago-catalog",
 	Array(
 		"ACTION_VARIABLE" => "action",
 		"ADD_ELEMENT_CHAIN" => "N",
-		"ADD_PICT_PROP" => "-",
+		"ADD_PICT_PROP" => "PRODUCT_GALERY",
 		"ADD_PROPERTIES_TO_BASKET" => "Y",
 		"ADD_SECTIONS_CHAIN" => "Y",
 		"AJAX_MODE" => "N",
@@ -62,12 +62,14 @@ $APPLICATION->SetTitle("");
 		"DETAIL_FB_USE" => "N",
 		"DETAIL_IMAGE_RESOLUTION" => "16by9",
 		"DETAIL_MAIN_BLOCK_OFFERS_PROPERTY_CODE" => array(),
-		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array("2","4","5","8"),
+		"DETAIL_MAIN_BLOCK_PROPERTY_CODE" => array(),
 		"DETAIL_META_DESCRIPTION" => "-",
 		"DETAIL_META_KEYWORDS" => "-",
 		"DETAIL_OFFERS_FIELD_CODE" => array("",""),
+		"DETAIL_OFFERS_PROPERTY_CODE" => array("",""),
 		"DETAIL_PRODUCT_INFO_BLOCK_ORDER" => "sku,props",
 		"DETAIL_PRODUCT_PAY_BLOCK_ORDER" => "rating,price,priceRanges,quantityLimit,quantity,buttons",
+		"DETAIL_PROPERTY_CODE" => array("2","4","5","6","7","PRODUCERS",""),
 		"DETAIL_SET_CANONICAL_URL" => "N",
 		"DETAIL_SET_VIEWED_IN_COMPONENT" => "N",
 		"DETAIL_SHOW_POPULAR" => "Y",
@@ -93,7 +95,7 @@ $APPLICATION->SetTitle("");
 		"FILTER_OFFERS_FIELD_CODE" => array("",""),
 		"FILTER_OFFERS_PROPERTY_CODE" => array("",""),
 		"FILTER_PRICE_CODE" => array(),
-		"FILTER_PROPERTY_CODE" => array("2","3","4","5","6","7","8",""),
+		"FILTER_PROPERTY_CODE" => array("2","4","5","6","7","3","8",""),
 		"FILTER_VIEW_MODE" => "HORIZONTAL",
 		"GIFTS_DETAIL_BLOCK_TITLE" => "Выберите один из подарков",
 		"GIFTS_DETAIL_HIDE_BLOCK_TITLE" => "N",
@@ -130,16 +132,18 @@ $APPLICATION->SetTitle("");
 		"LIST_META_KEYWORDS" => "-",
 		"LIST_OFFERS_FIELD_CODE" => array("",""),
 		"LIST_OFFERS_LIMIT" => "4",
+		"LIST_OFFERS_PROPERTY_CODE" => array("",""),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
 		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false}]",
-		"LIST_PROPERTY_CODE_MOBILE" => array("2","4","8"),
+		"LIST_PROPERTY_CODE" => array("",""),
+		"LIST_PROPERTY_CODE_MOBILE" => array(),
 		"LIST_SHOW_SLIDER" => "Y",
 		"LIST_SLIDER_INTERVAL" => "3000",
 		"LIST_SLIDER_PROGRESS" => "N",
 		"LOAD_ON_SCROLL" => "N",
 		"MESSAGE_404" => "",
 		"MESS_BTN_ADD_TO_BASKET" => "В корзину",
-		"MESS_BTN_BUY" => "Купить",
+		"MESS_BTN_BUY" => "Перейти в корзину",
 		"MESS_BTN_COMPARE" => "Сравнение",
 		"MESS_BTN_DETAIL" => "Показать",
 		"MESS_BTN_SUBSCRIBE" => "Подписаться",
@@ -148,11 +152,13 @@ $APPLICATION->SetTitle("");
 		"MESS_NOT_AVAILABLE" => "Нет в наличии",
 		"MESS_PRICE_RANGES_TITLE" => "Цены",
 		"MESS_PROPERTIES_TAB" => "Характеристики",
+		"OFFERS_CART_PROPERTIES" => array(),
 		"OFFERS_SORT_FIELD" => "sort",
 		"OFFERS_SORT_FIELD2" => "id",
 		"OFFERS_SORT_ORDER" => "asc",
 		"OFFERS_SORT_ORDER2" => "desc",
 		"OFFER_ADD_PICT_PROP" => "-",
+		"OFFER_TREE_PROPS" => array(),
 		"PAGER_BASE_LINK_ENABLE" => "N",
 		"PAGER_DESC_NUMBERING" => "N",
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
@@ -167,6 +173,7 @@ $APPLICATION->SetTitle("");
 		"PRICE_VAT_SHOW_VALUE" => "N",
 		"PRODUCT_DISPLAY_MODE" => "N",
 		"PRODUCT_ID_VARIABLE" => "id",
+		"PRODUCT_PROPERTIES" => array(),
 		"PRODUCT_PROPS_VARIABLE" => "prop",
 		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
 		"PRODUCT_SUBSCRIPTION" => "Y",
@@ -211,8 +218,11 @@ $APPLICATION->SetTitle("");
 		"TOP_LINE_ELEMENT_COUNT" => "3",
 		"TOP_OFFERS_FIELD_CODE" => array("",""),
 		"TOP_OFFERS_LIMIT" => "5",
+		"TOP_OFFERS_PROPERTY_CODE" => array("",""),
 		"TOP_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
 		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"TOP_PROPERTY_CODE" => array("",""),
+		"TOP_PROPERTY_CODE_MOBILE" => array(),
 		"TOP_SHOW_SLIDER" => "Y",
 		"TOP_SLIDER_INTERVAL" => "3000",
 		"TOP_SLIDER_PROGRESS" => "N",
@@ -239,4 +249,46 @@ $APPLICATION->SetTitle("");
 	)
 );?>
 </div>
- </section> <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+ </section>
+
+<?php
+
+GLOBAL $is_cart;
+if ($is_cart){
+    ?>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "AREA_FILE_SUFFIX" => "inc",
+            "EDIT_TEMPLATE" => "",
+            "PATH" => "/include/main-orders.php"
+        )
+    );?>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "AREA_FILE_SUFFIX" => "inc",
+            "EDIT_TEMPLATE" => "",
+            "PATH" => "/include/producers.php"
+        )
+    );?>
+    <?$APPLICATION->IncludeComponent(
+        "bitrix:main.include",
+        "",
+        Array(
+            "AREA_FILE_SHOW" => "file",
+            "AREA_FILE_SUFFIX" => "inc",
+            "EDIT_TEMPLATE" => "",
+            "PATH" => "/include/control.php"
+        )
+    );?>
+    <?php
+}
+    ?>
+
+
+  <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

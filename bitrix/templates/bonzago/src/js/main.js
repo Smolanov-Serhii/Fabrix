@@ -1,5 +1,39 @@
 $(document ).ready(function() {
 
+    if ($('.single-product__wrapper').length){
+
+        var prevproduct = new Swiper(".product-item-thumb-slider", {
+            spaceBetween: 20,
+            slidesPerView: 5,
+            loop: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            navigation: {
+                nextEl: ".wrapper-thumb-next",
+            },
+        });
+        var mainproduct = new Swiper(".product-item-detail-slider-container", {
+            spaceBetween: 0,
+            thumbs: {
+                swiper: prevproduct,
+            },
+        });
+    }
+
+    if ($('.js-show-all-property').length){
+        $('.js-show-all-property').on('click', function(){
+            $(this).toggleClass('active');
+            $('.addition-param').toggleClass('hidden');
+        });
+    }
+
+    if ($('.js-full-description').length){
+        $('.js-full-description').on('click', function(){
+            $(this).toggleClass('active');
+            $('.single-product__about-desc').toggleClass('active');
+        });
+    }
+
     function videoId(button) {
         var $videoUrl = button.attr("data-video");
         if ($videoUrl !== undefined) {

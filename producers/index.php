@@ -4,7 +4,7 @@ require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/header.php");
 $APPLICATION->SetTitle("");
 
 // dump($arResult["ITEMS"]);
-?>?&gt;
+?>
 <div class="breadcrumbs">
 	<div class="breadcrumbs__container container">
 		 <?$APPLICATION->IncludeComponent(
