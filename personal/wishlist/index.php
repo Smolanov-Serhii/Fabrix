@@ -13,7 +13,7 @@ $context = $application->getContext();
         if(!$USER->IsAuthorized()) // Для неавторизованного
         {
             global $APPLICATION;
-            $favorites = unserialize($APPLICATION->get_cookie('favorites'));
+            $favorites = unserialize(Application::getInstance()->getContext()->getRequest()->getCookie("favorites"));
         }
         else {
             $idUser = $USER->GetID();
@@ -21,9 +21,6 @@ $context = $application->getContext();
             $arUser = $rsUser->Fetch();
             $favorites = $arUser['UF_FAVORITES'];
 
-        }
-        if(!is_array($favorites)) {
-            unset($favorites);
         }
 
         $GLOBALS['arrFilter']=Array("ID" => $favorites);
