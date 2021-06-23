@@ -1,5 +1,17 @@
 $(document ).ready(function() {
 
+    if ($('.availability__quantity').length){
+        $( ".add-button-peace" ).each(function( index ) {
+            $(this).click(function(){
+                    $(this).closest('.availability__quantity').addClass('added');
+                    CurrentValue = $(this).closest('.availability__quantity').find('input').val();
+                    CurrentValue++;
+                    $(this).closest('.availability__quantity').find('input').val(CurrentValue);
+            });
+        });
+
+    }
+
     if ($('.single-product__wrapper').length){
 
         var prevproduct = new Swiper(".product-item-thumb-slider", {

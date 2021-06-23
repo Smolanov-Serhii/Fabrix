@@ -78,7 +78,7 @@ $APPLICATION->SetTitle("");
 		"DETAIL_SLIDER_INTERVAL" => "5000",
 		"DETAIL_SLIDER_PROGRESS" => "N",
 		"DETAIL_STRICT_SECTION_CHECK" => "N",
-		"DETAIL_USE_COMMENTS" => "Y",
+		"DETAIL_USE_COMMENTS" => "N",
 		"DETAIL_USE_VOTE_RATING" => "N",
 		"DETAIL_VK_USE" => "N",
 		"DISABLE_INIT_JS_IN_COMPONENT" => "N",
@@ -134,7 +134,7 @@ $APPLICATION->SetTitle("");
 		"LIST_OFFERS_LIMIT" => "4",
 		"LIST_OFFERS_PROPERTY_CODE" => array("",""),
 		"LIST_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false}]",
+		"LIST_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
 		"LIST_PROPERTY_CODE" => array("",""),
 		"LIST_PROPERTY_CODE_MOBILE" => array(),
 		"LIST_SHOW_SLIDER" => "Y",
@@ -164,9 +164,9 @@ $APPLICATION->SetTitle("");
 		"PAGER_DESC_NUMBERING_CACHE_TIME" => "36000",
 		"PAGER_SHOW_ALL" => "N",
 		"PAGER_SHOW_ALWAYS" => "N",
-		"PAGER_TEMPLATE" => ".default",
+		"PAGER_TEMPLATE" => "bootstrap_v4",
 		"PAGER_TITLE" => "Товары",
-		"PAGE_ELEMENT_COUNT" => "4",
+		"PAGE_ELEMENT_COUNT" => "20",
 		"PARTIAL_PRODUCT_PROPERTIES" => "N",
 		"PRICE_CODE" => array("BASE"),
 		"PRICE_VAT_INCLUDE" => "Y",
@@ -220,7 +220,7 @@ $APPLICATION->SetTitle("");
 		"TOP_OFFERS_LIMIT" => "5",
 		"TOP_OFFERS_PROPERTY_CODE" => array("",""),
 		"TOP_PRODUCT_BLOCKS_ORDER" => "price,props,sku,quantityLimit,quantity,buttons",
-		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false},{'VARIANT':'3','BIG_DATA':false}]",
+		"TOP_PRODUCT_ROW_VARIANTS" => "[{'VARIANT':'6','BIG_DATA':false}]",
 		"TOP_PROPERTY_CODE" => array("",""),
 		"TOP_PROPERTY_CODE_MOBILE" => array(),
 		"TOP_SHOW_SLIDER" => "Y",
@@ -250,45 +250,37 @@ $APPLICATION->SetTitle("");
 );?>
 </div>
  </section>
-
 <?php
 
 GLOBAL $is_cart;
 if ($is_cart){
-    ?>
-    <?$APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-            "AREA_FILE_SHOW" => "file",
-            "AREA_FILE_SUFFIX" => "inc",
-            "EDIT_TEMPLATE" => "",
-            "PATH" => "/include/main-orders.php"
-        )
-    );?>
-    <?$APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-            "AREA_FILE_SHOW" => "file",
-            "AREA_FILE_SUFFIX" => "inc",
-            "EDIT_TEMPLATE" => "",
-            "PATH" => "/include/producers.php"
-        )
-    );?>
-    <?$APPLICATION->IncludeComponent(
-        "bitrix:main.include",
-        "",
-        Array(
-            "AREA_FILE_SHOW" => "file",
-            "AREA_FILE_SUFFIX" => "inc",
-            "EDIT_TEMPLATE" => "",
-            "PATH" => "/include/control.php"
-        )
-    );?>
-    <?php
+    ?> <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/main-orders.php"
+	)
+);?> <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/producers.php"
+	)
+);?> <?$APPLICATION->IncludeComponent(
+	"bitrix:main.include",
+	"",
+	Array(
+		"AREA_FILE_SHOW" => "file",
+		"AREA_FILE_SUFFIX" => "inc",
+		"EDIT_TEMPLATE" => "",
+		"PATH" => "/include/control.php"
+	)
+);?> <?php
 }
-    ?>
-
-
-  <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
+    ?> <br><? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>
