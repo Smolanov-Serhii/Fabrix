@@ -37,7 +37,7 @@
         </div>
         <div class="sample-order__item">
             <div class="sample-order__arrow">
-                <img alt="Удобный заказ образцов" src="/bitrix/templates/bonzago/images/sample-order-arrow.svg">
+                <img alt="Удобный заказ образцов" src="/bitrix/templates/bonzago/images/sample-order-done.svg">
             </div>
             <div class="sample-order__digit">
                 3

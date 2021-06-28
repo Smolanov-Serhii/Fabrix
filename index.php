@@ -4,11 +4,15 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
 ?>
     <section class="main-banner">
         <div class="main-banner__img">
-            <img alt="Главный баннер" src="/bitrix/templates/bonzago/images/banner-main.jpg">
+            <picture>
+                <source media="(min-width: 500px)"
+                        srcset="/bitrix/templates/bonzago/images/banner-main.jpg">
+                <img src="/bitrix/templates/bonzago/images/banner-main-mob.jpg" alt="Текстильная online площадка">
+            </picture>
         </div>
         <div class="container">
             <div class="main-banner__wrapper">
-                <h1 class="main-banner__title">Текстильная online площадка</h1>
+                <h1 class="block-title main-banner__title">Текстильная online площадка</h1>
                 <p class="main-banner__content">
                     Прямой доступ к десяткам проверенных поставщиков тканей и трикотажа
                 </p>
@@ -218,5 +222,5 @@ $APPLICATION->SetTitle("Интернет-магазин \"Одежда\"");
         "PATH" => "/include/control.php"
     )
 );?>
-
+<script src=""
 <? require($_SERVER["DOCUMENT_ROOT"] . "/bitrix/footer.php"); ?>

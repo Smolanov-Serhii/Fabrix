@@ -6,10 +6,9 @@ use Bitrix\Main\Web\Cookie;
 $application = Application::getInstance();
 $context = $application->getContext();
 ?>
-
     <div class="inner container favorites">
-        <h1>Избранное</h1>
-        <?
+	<h1>Избранное</h1>
+	 <?
         if(!$USER->IsAuthorized()) // Для неавторизованного
         {
             global $APPLICATION;
@@ -153,16 +152,13 @@ $context = $application->getContext();
             );
         else:
             ?>
-            <div class="inner">
-                <div class="center">
-                    <div class="waitingfor">
-                        Вы не добавляли товары в избранное.
-                    </div>
-                </div>
-            </div>
-
-        <?endif;?>
-
-    </div>
-
+	<div class="inner">
+		<div class="center">
+			<div class="waitingfor">
+				 Вы не добавляли товары в избранное.
+			</div>
+		</div>
+	</div>
+	 <?endif;?>
+</div>
 <?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

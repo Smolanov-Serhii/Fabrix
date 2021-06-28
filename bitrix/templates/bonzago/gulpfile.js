@@ -34,6 +34,7 @@ const scriptFiles = [
    // './src/js/perfect-scrollbar.js',
    './src/js/jquery.columnizer.js',
    './src/js/swiper-bundle.js',
+   './src/js/masonry.pkgd.min.js',
    './src/js/main.js'
 ]
 
